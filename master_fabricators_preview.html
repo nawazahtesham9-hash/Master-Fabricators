@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Master Fabricators — Preview (Downloaded Copy)</title>
+  <meta name="description" content="Downloaded preview wrapper for the site hosted at id-preview-260215c6--1dabb8e5-c3ed-43d1-96a4-1773d5b6eba7.lovable.app">
+  <style>
+    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    .frame{position:fixed;inset:0;border:0;width:100%;height:100%}
+    .toolbar{position:fixed;left:0;right:0;top:0;height:48px;background:rgba(255,255,255,0.95);backdrop-filter:blur(6px);display:flex;align-items:center;gap:12px;padding:8px 12px;box-shadow:0 1px 8px rgba(0,0,0,0.08);z-index:999}
+    .title{font-weight:600}
+    .actions{margin-left:auto;display:flex;gap:8px}
+    .btn{padding:6px 10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);background:#fff;cursor:pointer}
+    .note{position:fixed;left:12px;bottom:12px;background:rgba(0,0,0,0.6);color:#fff;padding:8px 10px;border-radius:10px;font-size:13px}
+    iframe{width:100%;height:100%;border:0}
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <div class="title">Master Fabricators — Preview</div>
+    <div class="actions">
+      <button class="btn" onclick="openOriginal()">Open Original</button>
+      <button class="btn" onclick="downloadHTML()">Download HTML</button>
+    </div>
+  </div>
+
+  <iframe id="siteFrame" class="frame" src="https://id-preview-260215c6--1dabb8e5-c3ed-43d1-96a4-1773d5b6eba7.lovable.app/" title="Master Fabricators preview" sandbox="allow-same-origin allow-scripts allow-forms allow-popups"></iframe>
+
+  <div class="note">If the preview fails to render, click "Open Original" to view the site directly.</div>
+
+  <script>
+    function openOriginal(){ window.open('https://id-preview-260215c6--1dabb8e5-c3ed-43d1-96a4-1773d5b6eba7.lovable.app/','_blank') }
+
+    function downloadHTML(){
+      const html = `<!doctype html>\n<html lang="en">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<title>Master Fabricators — Embedded Preview</title>\n</head>\n<body>\n<p>This file embeds the original site at: <a href=\"https://id-preview-260215c6--1dabb8e5-c3ed-43d1-96a4-1773d5b6eba7.lovable.app/\">Open Original</a></p>\n<iframe src=\"https://id-preview-260215c6--1dabb8e5-c3ed-43d1-96a4-1773d5b6eba7.lovable.app/\" style=\"width:100%;height:100vh;border:0\"></iframe>\n</body>\n</html>`;
+      const blob = new Blob([html], {type: 'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'master-fabricators-preview.html';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
